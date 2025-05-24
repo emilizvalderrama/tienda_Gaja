@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" name="keywords" content="web,html">
+  <title>Mi Página Web</title>
+  <style>
+  /* Estilos generales para el cuerpo de la página */
+  body {
+    font-family: Arial, sans-serif; /* Fuente principal */
+    margin: 0; 
+    padding: 0 20px; /* Espaciado lateral */
+    background-color: #fdf1f5; /* Color de fondo rosado claro */
+    color: #333; /* Color del texto principal (gris oscuro) */
+  }
+
+  /* Sección del logo centrado */
+  .logo {
+    text-align: center; /* Centra el contenido horizontalmente */
+    padding: 10px 0; /* Espaciado vertical */
+  }
+
+  /* Barra superior de color rosa con texto blanco */
+  .barra-color {
+    background-color: #ff66b2; /* Rosa fuerte */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 15px 0; /* Espaciado vertical */
+    font-size: 36px; /* Tamaño del texto grande */
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 20px; /* Separación inferior */
+  }
+
+  /* Estilos del menú de navegación */
+  nav {
+    text-align: center; /* Centra los enlaces */
+    margin-bottom: 30px; /* Espacio debajo del menú */
+    font-size: 16px; /* Tamaño del texto */
+  }
+
+  /* Estilos para los enlaces y los selectores del menú */
+  nav a, nav select {
+    margin: 0 8px; /* Espacio entre elementos */
+    cursor: pointer; /* Cursor tipo mano */
+    color: #a10060; /* Color de los enlaces (morado oscuro) */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 600; /* Semi-negrita */
+  }
+
+  /* Efecto hover para los enlaces del menú */
+  nav a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+    color: #ff66b2; /* Cambia a rosa fuerte */
+  }
+
+  /* Estilos para los selectores desplegables */
+  select {
+    padding: 4px 8px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ff69b4; /* Borde rosa */
+    background-color: #fff0f6; /* Fondo rosado claro */
+    font-weight: 600; /* Texto en semi-negrita */
+  }
+
+  /* Estilos generales para todas las secciones (ocultas por defecto) */
+  section {
+    display: none; /* Ocultas al inicio */
+    padding: 30px 15px; /* Espaciado interno */
+    background-color: white; /* Fondo blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 8px #f0a8ca; /* Sombra rosada suave */
+    max-width: 900px; /* Ancho máximo */
+    margin: 0 auto 40px auto; /* Centrado horizontal y espacio inferior */
+  }
+
+  /* Sección especial para "inicio", que se muestra en modo flex */
+  #inicio {
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centrado vertical */
+    font-size: 18px; /* Tamaño de texto ligeramente mayor */
+  }
+
+  /* Divisiones internas del inicio */
+  #inicio div {
+    width: 48%; /* Mitad del contenedor con pequeño espacio entre ellos */
+  }
+
+  /* Estilos para imágenes */
+  img {
+    max-width: 100%; /* Escala proporcionalmente al ancho del contenedor */
+    height: auto; /* Mantiene proporciones */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+
+  /* Estilos para tablas */
+  table {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Bordes colapsados */
+    margin-top: 20px; /* Espacio superior */
+  }
+
+  /* Estilos para celdas de tabla */
+  th, td {
+    border: 1px solid #ff99cc; /* Borde rosado claro */
+    padding: 10px; /* Espaciado interno */
+    text-align: center; /* Texto centrado */
+  }
+
+  /* Estilos para encabezados de tabla */
+  th {
+    background-color: #ff66b2; /* Fondo rosa fuerte */
+    color: white; /* Texto blanco */
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- LOGO de la marca centrado -->
+  <div class="logo">
+    <img src="carpeta2_imag/Gaja_logo.png" style="height: 200px;">
+  </div>
+
+  <!-- Barra superior con el nombre del sitio -->
+  <div class="barra-color">Camisetas personalizadas</div>
+
+  <!-- Menú de navegación principal -->
+  <nav>
+    <!-- Enlace al inicio -->
+    <a href="#" id="enlace-inicio">Inicio</a>
+
+    <!-- Menú desplegable para categoría Mujer -->
+    <select id="menu-mujer" onchange="mostrarSeccion();">
+      <option value="">Mujer</option>
+      <option value="mujer-corte-clasico">Corte Clásico</option>
+    </select> |
+
+    <!-- Menú desplegable para categoría Hombre -->
+    <select id="menu-hombre" onchange="mostrarSeccion();">
+      <option value="">Hombre</option>
+      <option value="hombre-corte-clasico">Corte Clásico</option>
+    </select> |
+
+    <!-- Menú desplegable para diseños personalizados -->
+    <select id="menu-disenos" onchange="mostrarSeccion();">
+      <option value="">Diseños Personalizados</option>
+      <option value="disenos-divertidas">Divertidas</option>
+      <option value="disenos-dia-madre">Día de la Madre</option>
+      <option value="disenos-dia-padre">Día del Padre</option>
+    </select> |
+
+    <!-- Menú desplegable para diseñar tu estilo -->
+    <select id="menu-disenar" onchange="mostrarSeccion();">
+      <option value="">Diseñar Ahora</option>
+      <option value="disenar-tu-estilo">Diseña Tú Estilo</option>
+    </select> |
+
+    <!-- Enlace a la sección Quiénes Somos -->
+    <a href="#quienes-somos" id="enlace-quienes-somos">Quiénes Somos</a> |
+
+    <!-- Enlace a la sección Contáctanos -->
+    <a href="#contactanos" id="enlace-contactanos">Contáctanos</a>
+  </nav>
+
+  <!-- Sección de INICIO visible por defecto -->
+  <section id="inicio" style="display: flex;">
+    <div>
+      <h1 style="color:Orchid;">"Camisetas que hablan por ti"</h1>
+      <p style="background-color:LavenderBlush; font-size: 24px; padding: 10px; border-radius: 5px;">
+        Creamos tú camiseta perfecta para cualquier ocasión...<br>
+        <strong>¡Tú la imaginas, nosotros la estampamos!</strong>
+      </p>
+    </div>
+    <div>
+      <img src="carpeta2_imag/inicio.png" alt="Ejemplo de camiseta">
+    </div>
+  </section>
+
+  <!-- Sección QUIÉNES SOMOS -->
+  <section id="quienes-somos" style="color: #2f4f4f;"> <!-- darkslategray -->
+  <h2 style="text-align: center;">Quiénes Somos</h2>
+
+  <p style="text-align: center;">
+    Somos una empresa dedicada a la creación de camisetas personalizadas que reflejan tu estilo, emociones y creatividad.
+    Nuestro objetivo es ofrecer productos únicos que te permitan expresarte con autenticidad.
+  </p>
+  <p style="text-align: center;">
+    Fundada por amantes del diseño y la moda, en <strong>Gaja</strong> creemos que una camiseta es más que una prenda:
+    es una forma de comunicar quién eres. Desde diseños divertidos hasta homenajes para ocasiones especiales,
+    nuestro equipo está comprometido con la calidad, originalidad y satisfacción del cliente.
+  </p>
+  <p style="text-align: center;">
+    ¡Gracias por ser parte de nuestra comunidad creativa!
+  </p>
+
+  <!-- Video centrado debajo del texto -->
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <video width="560" height="315" controls>
+      <source src="carpeta2_imag/video525.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+</section>
+
+
+  <section id="contactanos">
+  <!-- FORMULARIO DE COMPRA -->
+  <form id="form-compra-simulada" style="max-width: 400px; margin: 40px auto 20px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #fefefe; font-family: Arial, sans-serif;">
+    <h3 style="text-align: center; margin-bottom: 20px; color: #444;">Comprar Ahora</h3>
+    
+    <label for="nombre-tarjeta" style="display:block; margin-bottom: 6px;">Nombre en la tarjeta</label>
+    <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Emiliz Valderrama" required style="width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid #aaa; border-radius: 4px;">
+
+    <label for="numero-tarjeta" style="display:block; margin-bottom: 6px;">Número de tarjeta</label>
+    <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required pattern="\d{4} \d{4} \d{4} \d{4}" style="width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid #aaa; border-radius: 4px;">
+
+    <label for="fecha-exp" style="display:block; margin-bottom: 6px;">Fecha de expiración (MM/AA)</label>
+    <input type="text" id="fecha-exp" name="fecha-exp" placeholder="08/25" maxlength="5" required pattern="\d{2}/\d{2}" style="width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid #aaa; border-radius: 4px;">
+
+    <label for="cvv" style="display:block; margin-bottom: 6px;">CVV</label>
+    <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="3" required pattern="\d{3}" style="width: 100%; padding: 8px; margin-bottom: 20px; border: 1px solid #aaa; border-radius: 4px;">
+
+    <button type="submit" style="background-color: #28a745; color: white; padding: 12px; width: 100%; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">
+      Comprar Ahora
+    </button>
+  </form>
+
+  <p id="mensaje-compra" style="text-align:center; margin-top: 15px; font-weight: bold; color: #28a745; display:none;">¡Compra simulada exitosa! 🎉</p>
+
+  <!-- INFORMACIÓN DE CONTACTO -->
+  <h2 style="text-align: center; color: darkslategray;">Contáctanos</h2>
+  <p><strong>Teléfono:</strong> +584125045814</p>
+  <p><strong>Email:</strong> Gaja@gmail.com</p>
+  <p><strong>Dirección:</strong> Biscucuy 3351,Portuguesa,Venezuela</p>
+  <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+
+
+  <section id="mujer-corte-clasico">
+    <h3 style="text-align: center; color: mediumvioletred;">Precios de Camisetas Corte Clásico Mujer</h3>
+	<table border="1" cellpadding="10" width="1000" height="50">
+  <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        $25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/DISEÑOS FRANELAS MANDALAS_Mesa de trabajo 1.jpg" alt="mandala_1" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer2.jpg" alt="mujer_2" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/DISEÑOS FRANELAS MANDALAS-03.jpg" alt="mandala_3" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer3.jpg" alt="mujer_3" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/DISEÑOS FRANELAS MANDALAS-05.jpg" alt="mandala_5" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer4.jpg" alt="mujer_4" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer1.jpg" alt="mujer_1" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer5.jpg" alt="mujer_5" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>$25.99
+        <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+          <li>Tamaño: S, M, L</li>
+          <li>Color: Negro, Blanco, Rosa, Azul</li>
+          <li>Material: 100% algodón</li>
+        </ul>
+      </td>
+      <td>
+        <a href="#contactanos">
+          <img src="carpeta2_imag/mujer6.jpg" alt="mujer_6" style="width: 400px; height: auto;">
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  <!-- Video explicativo -->
+  <div style="text-align: center; margin-top: 30px;">
+    <h4>¿Cómo saber tu talla de camiseta?</h4>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/wfADWZds1IM" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Tabla de medidas -->
+  <div style="text-align: center; margin-top: 30px;">
+   <h4>Tabla de Medidas de Mujer</h4>
+   <img src="https://acoldemoda.com/wp-content/uploads/2021/08/Tabla-Tallas-Blusas.png.webp" alt="Tabla de medidas de mujer" style="width: 100%; max-width: 600px; margin: 20px 0;">
+  </div>
+</section>
+
+
+
+
+
+  <section id="hombre-corte-clasico">
+  <h3 style="text-align:center;">Hombre - Corte Clásico</h3>
+  <table border="1" cellpadding="10" width="1000" height="50">
+    <thead>
+      <tr><th>Descripción</th><th>Imagen</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/hombre5.jpg" alt="camisa1" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/hombre3.jpg" alt="camisa2" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja Harry Potter Roja-06.jpg" alt="camisa3" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/hombre4.jpg" alt="camisa4" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja Harry Potter blanca-06.jpg" alt="camisa5" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/hombre2.jpg" alt="camisa6" style="width: 400px;"></a></td>
+      </tr>
+    </tbody>
+  </table>
+    <!-- Video explicativo -->
+  <div style="text-align: center; margin-top: 30px;">
+    <h4>¿Cómo saber tu talla de camiseta?</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/c69-n88klv4" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Tabla de medidas -->
+  <div style="text-align: center; margin-top: 30px;">
+   <h4>Tabla de Medidas de Hombre</h4>
+   <img src="https://cdn.shopify.com/s/files/1/0566/6570/2572/files/camisa_mujer_mangacorta_480x480.jpg?v=1715695307" alt="Tabla de medidas de mujer" style="width: 100%; max-width: 600px; margin: 20px 0;">
+  </div>
+</section>
+
+
+ <section id="disenos-divertidas">
+  <h3 style="text-align:center;">Diseños Divertidas</h3>
+  <table border="1" cellpadding="10" width="1000" height="50">
+    <thead>
+      <tr><th>Descripción</th><th>Imagen</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/divertida1.jpg" alt="mañana_sera_bonito" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/GAJA Intensamente 2-26.jpg" alt="tristeza" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja mafalda-21.jpg" alt="mafalda" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja rugrats 2-23.jpg" alt="rugrats" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Intensamente Desagrado-28.jpg" alt="desagrado" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Imagenes Instagram colección Chicas Super Poderosas-15.jpg" alt="chicas" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja tom y jerry 5 6-05.jpg" alt="tom_jerry" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja Rugrats-23.jpg" alt="ya_no_quiero" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/divertida2.jpg" alt="grinch" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/divertida3.jpg" alt="simpsons" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/divertida4.jpg" alt="princesa_mario" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul>
+		   <li>Tamaño: S, M, L</li>
+		   <li>Color: Negro, Blanco, Rosa, Azul</li>
+		   <li>Material: 100% algodón</li>
+		  </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/divertida5.jpg" alt="navidad" style="width: 400px;"></a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+  <section id="disenos-dia-madre">
+  <h3 style="text-align:center;">Día de la Madre</h3>
+  <table>
+    <thead>
+      <tr><th>Descripción</th><th>Imagen</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja MON2-28.jpg" alt="dia_madre1" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja MOM-27.jpg" alt="dia_madre2" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/Gaja MAMA 2-26.jpg" alt="mama_3" style="width: 400px;"></a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+  <section id="disenos-dia-padre">
+    <h3 style="text-align:center;">Día del Padre</h3>
+    <table border="1" cellpadding="10" width="1000" height="50">
+    <thead>
+      <tr><th>Descripción</th><th>Imagen</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/dia del padre1.jpg" alt="dia del padre1" style="width: 400px;"></a></td>
+      </tr>
+      <tr>
+        <td>$25.99
+          <ul style="list-style: disc; padding: 0; margin: 5px 0 0 0; font-size: 14px;">
+            <li>Tamaño: S, M, L</li>
+            <li>Color: Negro, Blanco, Rosa, Azul</li>
+            <li>Material: 100% algodón</li>
+          </ul>
+        </td>
+        <td><a href="#contactanos"><img src="carpeta2_imag/dia del padre 2.jpg" alt="dia del padre2" style="width: 400px;"></a></td>
+      </tr>
+    </tbody>
+  </table>
+  </section>
+ 
+
+ <section class="diseñar" id="disenar-tu-estilo" style="font-family: 'Arial', sans-serif; padding: 40px; background-color: #f9f9f9;">
+  <div class="contenido-diseñar" style="max-width: 900px; margin: 0 auto; text-align: center;">
+    
+    <h2 style="font-size: 2.5em; color: #333;">Diseñá tu estilo</h2>
+    <p style="font-size: 1.1em; color: #555; margin-bottom: 30px;">
+      ¡Personalizá tu propia camiseta de forma rápida y sencilla!<br>
+      Puedes Subír tu imagen o elegí una de nuestras prediseñadas para empezar.
+    </p>
+
+    <div style="background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
+      <h3 style="color: #222; margin-bottom: 20px;">Diseñá tu camiseta</h3>
+
+      <!-- Imagen camiseta -->
+      <div style="position: relative; display: inline-block;">
+        <img src="carpeta2_imag/camisa_blanca.png" alt="Camiseta blanca" style="width: 400px; max-width: 100%; border-radius: 8px;">
+      </div>
+
+      <!-- Subida de imagen -->
+      <div style="margin-top: 25px;">
+        <label for="imgUpload" style="font-weight: bold;">Subir tu imagen:</label><br>
+        <input type="file" id="imgUpload" name="imgUpload" accept="image/*" style="margin-top: 10px;">
+      </div>
+
+      <!-- Imágenes prediseñadas -->
+      <p style="margin-top: 30px; color: #444;">O elegí una de nuestras imágenes prediseñadas:</p>
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">  
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/120px-Pleiades_large.jpg" alt="Logo 3" style="width: 80px; border: 2px solid #ccc; border-radius: 8px; cursor: pointer;">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/120px-PNG_transparency_demonstration_1.png" alt="Logo 2" style="width: 80px; height: auto; border: 2px solid #ccc; border-radius: 8px; cursor: pointer;">
+		<img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=120" alt="Logo 3" style="width: 80px; height: auto; border: 2px solid #ccc; border-radius: 8px; cursor: pointer;">
+		<img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Logo 4" style="width: 80px; height: auto; border: 2px solid #ccc; border-radius: 8px; cursor: pointer;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  function ocultarTodo() {
+    const secciones = [
+      'inicio', 'quienes-somos', 'contactanos',
+      'mujer-corte-clasico', 'hombre-corte-clasico',
+      'disenos-divertidas', 'disenos-dia-madre', 'disenos-dia-padre',
+      'disenar-tu-estilo'
+    ];
+    secciones.forEach(id => {
+      const seccion = document.getElementById(id);
+      if (seccion) seccion.style.display = 'none';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('enlace-inicio').addEventListener('click', function(e) {
+      e.preventDefault();
+      ocultarTodo();
+      document.getElementById('inicio').style.display = 'flex';
+
+      // Reiniciar selects para que no tengan opciones seleccionadas
+      ['menu-mujer', 'menu-hombre', 'menu-disenos', 'menu-disenar'].forEach(id => {
+        const select = document.getElementById(id);
+        if (select) select.value = "";
+      });
+    });
+
+    document.getElementById('enlace-quienes-somos').addEventListener('click', function(e) {
+      e.preventDefault();
+      ocultarTodo();
+      document.getElementById('quienes-somos').style.display = 'block';
+    });
+
+    document.getElementById('enlace-contactanos').addEventListener('click', function(e) {
+      e.preventDefault();
+      ocultarTodo();
+      document.getElementById('contactanos').style.display = 'block';
+    });
+		// Mostrar el formulario de compra cuando se hace clic en las imágenes de camisetas
+	document.querySelectorAll('a[href="#contactanos"]').forEach(enlace => {
+	  enlace.addEventListener('click', function(e) {
+		e.preventDefault();
+		ocultarTodo();
+		document.getElementById('contactanos').style.display = 'block';
+	  });
+	});
+
+
+    const selects = ['menu-mujer', 'menu-hombre', 'menu-disenos', 'menu-disenar'];
+    selects.forEach(id => {
+      const select = document.getElementById(id);
+      if (select) {
+        select.addEventListener('change', function() {
+          ocultarTodo();
+          const valor = this.value;
+          if (valor && valor !== '#') {
+            const seccion = document.getElementById(valor);
+            if (seccion) seccion.style.display = 'block';
+          }
+        });
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+</html>
